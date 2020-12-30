@@ -1,0 +1,22 @@
+name: Notice
+author: JunHyeokShin
+version: 0.0.1
+api-version: 1.16
+main: notice.Notice
+commands:
+  notice:
+    description: Managing Notifications.
+    usage: /<command> help - Displays the help for Notice.
+
+permissions:
+  notice.*:
+    description: Gives access to all commands for managing Notice.
+    children:
+      notice.receiver: true
+      notice.admin: true
+  notice.receiver:
+    description: Allows you to receive the notice.
+    default: true
+  notice.admin:
+    description: Gives access to all commands for managing Notice.
+    default: op
