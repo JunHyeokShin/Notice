@@ -1,6 +1,6 @@
 enabled: true
 shuffle: false
-prefix: '&6&l[NOTICE]&r'
+prefix: '&6&l[NOTICE] &r'
 interval: 100
 messages:
   - 'message1'

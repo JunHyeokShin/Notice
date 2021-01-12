@@ -55,8 +55,8 @@ public class Notice extends JavaPlugin {
 		String loggerMessage = line.replace("&", "§");
 		String sendToMessage = loggerMessage.replace("{$online}", Integer.toString(getServer().getOnlinePlayers().size()));
 		sendToMessage = sendToMessage.replace("{$maxplayer}", Integer.toString(getServer().getMaxPlayers()));
-		for(Player player : getServer().getOnlinePlayers()) {
-			if(player.hasPermission("notice.receiver")) {
+		for (Player player : getServer().getOnlinePlayers()) {
+			if (player.hasPermission("notice.receiver")) {
 				String sendToMessage1 = sendToMessage.replace("{$player}", player.getName());
 				sendToMessage1 = sendToMessage1.replace("{$health}", (int) player.getHealth() + "/" + (int) player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getDefaultValue());
 				sendToMessage1 = sendToMessage1.replace("{$world}", player.getWorld().getName());
@@ -73,7 +73,7 @@ public class Notice extends JavaPlugin {
 	}
 
 	public void addToNoticeMessage(String message, int index) {
-		noticeMessages.add(index, message);
+		noticeMessages.add(index - 1, message);
 		saveConfiguration();
 	}
 
