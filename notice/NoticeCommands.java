@@ -16,8 +16,8 @@ public class NoticeCommands implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		boolean success;
 
-		if(args.length != 0 && !args[0].equalsIgnoreCase("help")) {
-			if(args[0].equalsIgnoreCase("version")) {
+		if (args.length != 0 && !args[0].equalsIgnoreCase("help")) {
+			if (args[0].equalsIgnoreCase("version")) {
 				success = onVersionCommand(sender, cmd, label, args);
 			} else if (args[0].equalsIgnoreCase("info")) {
 				success = onInfoCommand(sender, cmd, label, args);
