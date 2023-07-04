@@ -1,0 +1,23 @@
+name: Notice
+author: JunHyeokShin (HYK)
+version: '1.0.0'
+api-version: '1.19'
+main: com.hyk.notice.NoticePlugin
+
+commands:
+  notice:
+    description: Base plugin command.
+    usage: /notice help
+
+permissions:
+  notice.*:
+    description: Gives access to all commands for managing Notice.
+    children:
+      notice.receiver: true
+      notice.admin: true
+  notice.receiver:
+    description: Allows receive notifications.
+    default: true
+  notice.admin:
+    description: Gives access to all commands for managing Notice plugin.
+    default: op

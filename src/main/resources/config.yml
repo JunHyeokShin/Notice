@@ -1,0 +1,11 @@
+enabled: true
+shuffle: false
+# To delete prefix, use command "/notice prefix" or type "prefix: ''"
+prefix: '&6&l[NOTICE] &r'
+# Interval must be at least 0.
+interval: 60
+# To delete all messages, use command "/notice delete all" or type "messages: []".
+messages:
+- '{$online} / {$maxplayers} / {$player} / {$health} / {$location} &0a &1b &2c &3d &4e &5f &6g &7h &8i &9j &ak &bl &cm &dn &eo &fp &r&kq &r&lr &r&ms &r&nt &r&ou &rv'
+- 'Hello, {$player}! {$online}/{$maxplayers} connecting, you are at {$location} of {$world}, your health: {$health}'
+- 'message3'
