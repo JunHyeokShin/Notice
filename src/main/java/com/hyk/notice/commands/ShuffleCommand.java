@@ -5,11 +5,17 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ShuffleCommand implements SubCommand {
     private final NoticePlugin plugin;
+    private final List<String> arguments = new ArrayList<>();
 
     public ShuffleCommand(NoticePlugin plugin) {
         this.plugin = plugin;
+        arguments.add("on");
+        arguments.add("off");
     }
 
     @Override
@@ -32,6 +38,11 @@ public class ShuffleCommand implements SubCommand {
             sender.sendMessage(ChatColor.GOLD + "[Notice] " + ChatColor.RED + "You don't have permission to access this command.");
         }
         return true;
+    }
+
+    @Override
+    public List<String> getArguments() {
+        return arguments;
     }
 
     @Override

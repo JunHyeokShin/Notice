@@ -13,6 +13,7 @@ public final class NoticePlugin extends JavaPlugin {
     private final NoticeTask noticeTask = new NoticeTask(this);
     private final NoticeConfig noticeConfig = new NoticeConfig(this);
     private final NoticeCommand noticeCommand = new NoticeCommand();
+    private final NoticeCommandCompleter noticeCommandCompleter = new NoticeCommandCompleter(this);
 
     public NoticePlugin() {
     }
@@ -22,6 +23,7 @@ public final class NoticePlugin extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
         this.getServer().getPluginManager().registerEvents(new PlayerQuit(this), this);
         this.getCommand("notice").setExecutor(this.noticeCommand);
+        this.getCommand("notice").setTabCompleter(this.noticeCommandCompleter);
         this.noticeCommand.registerCommand(new HelpCommand(this), "help");
         this.noticeCommand.registerCommand(new VersionCommand(this), "version");
         this.noticeCommand.registerCommand(new InfoCommand(this), "info");
@@ -55,5 +57,9 @@ public final class NoticePlugin extends JavaPlugin {
 
     public NoticeConfig getNoticeConfig() {
         return this.noticeConfig;
+    }
+
+    public NoticeCommand getNoticeCommand() {
+        return this.noticeCommand;
     }
 }

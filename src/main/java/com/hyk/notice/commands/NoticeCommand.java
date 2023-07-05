@@ -6,11 +6,13 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class NoticeCommand implements CommandExecutor {
-    private Map<String, SubCommand> subCommands = new HashMap<>();
+    private final Map<String, SubCommand> subCommands = new HashMap<>();
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -36,5 +38,13 @@ public class NoticeCommand implements CommandExecutor {
         for (String cmd:command) {
             subCommands.put(cmd, subCommand);
         }
+    }
+
+    public Map<String, SubCommand> getSubCommands() {
+        return subCommands;
+    }
+
+    public List<String> getSubCommandsKeys() {
+        return new ArrayList<>(subCommands.keySet());
     }
 }

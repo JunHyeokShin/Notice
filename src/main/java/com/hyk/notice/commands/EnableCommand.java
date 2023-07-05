@@ -5,8 +5,12 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EnableCommand implements SubCommand {
     private final NoticePlugin plugin;
+    private final List<String> arguments = new ArrayList<>();
 
     public EnableCommand(NoticePlugin plugin) {
         this.plugin = plugin;
@@ -26,6 +30,11 @@ public class EnableCommand implements SubCommand {
             sender.sendMessage(ChatColor.GOLD + "[Notice] " + ChatColor.RED + "You don't have permission to access this command.");
         }
         return true;
+    }
+
+    @Override
+    public List<String> getArguments() {
+        return arguments;
     }
 
     @Override

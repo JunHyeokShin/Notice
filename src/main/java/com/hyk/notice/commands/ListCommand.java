@@ -5,8 +5,12 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ListCommand implements SubCommand {
     private final NoticePlugin plugin;
+    private final List<String> arguments = new ArrayList<>();
 
     public ListCommand(NoticePlugin plugin) {
         this.plugin = plugin;
@@ -41,11 +45,6 @@ public class ListCommand implements SubCommand {
         return true;
     }
 
-    @Override
-    public String getPermission() {
-        return "notice.admin";
-    }
-
     private void showSenderList(CommandSender sender, int page) {
         sender.sendMessage(ChatColor.GOLD + ChatColor.BOLD.toString() + "====[" +
                 ChatColor.RED + ChatColor.BOLD + String.format("Registered Messages (Page %d/%d)", page, (int) Math.ceil((double) plugin.getNoticeConfig().getNumberOfMessages() / 8)) +
@@ -56,5 +55,15 @@ public class ListCommand implements SubCommand {
             sender.sendMessage(ChatColor.GOLD + ChatColor.BOLD.toString() + (index + 1) + ". " +
                     ChatColor.RESET + plugin.getNoticeTask().replaceColorCodes(plugin.getNoticeConfig().getMessage(index)));
         }
+    }
+
+    @Override
+    public List<String> getArguments() {
+        return arguments;
+    }
+
+    @Override
+    public String getPermission() {
+        return "notice.admin";
     }
 }
